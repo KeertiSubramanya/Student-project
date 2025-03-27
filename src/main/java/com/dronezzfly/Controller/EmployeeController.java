@@ -17,14 +17,15 @@ import com.dronezzfly.service.EmployeeService;
 public class EmployeeController {
 	@Autowired
 	private EmployeeService empservice;
-	@Autowired
-	private EmployeeRepository emprepo;
+	//@Autowired
+	//private EmployeeRepository emprepo;
 	@PostMapping("/save")
 	public ResponseEntity<Employee> saveEmployee(@RequestBody Employee employee){
-		Employee savedEmployee = emprepo.save(employee);  // Example of saving the entity
-
-	    // Return the saved Employee object with HTTP 201 status
-	    return ResponseEntity.status(HttpStatus.CREATED).body(savedEmployee);
+		return empservice.saveEmployee(employee);
+//		Employee savedEmployee = emprepo.save(employee);  // Example of saving the entity
+//
+//	    // Return the saved Employee object with HTTP 201 status
+//	    return ResponseEntity.status(HttpStatus.CREATED).body(savedEmployee);
 
 	}
 }
